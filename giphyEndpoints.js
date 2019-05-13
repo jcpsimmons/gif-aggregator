@@ -1,15 +1,15 @@
-const keys = process.env.APIKEY;
+const gKey = process.env.APIKEY;
 
 exports.trendingApiReq =
   "https://api.giphy.com/v1/gifs/trending?api_key=" +
-  keys.giphyKey +
+  gKey +
   "&limit=15" +
   "&rating=pg";
 
 exports.giphyApiSearchString = function(q) {
   var searchString =
     "https://api.giphy.com/v1/gifs/search?api_key=" +
-    keys.giphyKey +
+    gKey +
     "&q=" +
     q +
     "&limit=30" +
