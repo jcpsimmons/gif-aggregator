@@ -1,5 +1,12 @@
 # gif-aggregator (backend)
 
+**update**
+API is now accessible via Heroku.
+
+- GET https://gif-aggregator.herokuapp.com/api/v1/trending
+- GET https://gif-aggregator.herokuapp.com/api/v1/test
+- POST https://gif-aggregator.herokuapp.com/api/v1/search (send x-www-form-urlencoded query and query string)
+
 I'm building a site that queries the GIPHY API and displays gifs.
 
 I don't want my API key out in the open, so I'm building this backend to route requests behind the scenes.
