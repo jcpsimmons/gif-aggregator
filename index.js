@@ -1,6 +1,5 @@
 const express = require("express");
 const axios = require("axios");
-const stringify = require("json-stringify-safe");
 var bodyParser = require("body-parser");
 
 const giphyEndpoints = require("./giphyEndpoints.js");

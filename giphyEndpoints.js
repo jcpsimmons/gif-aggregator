@@ -1,4 +1,4 @@
-const keys = require("./keys/keys");
+const keys = process.env.APIKEY;
 
 exports.trendingApiReq =
   "https://api.giphy.com/v1/gifs/trending?api_key=" +
