@@ -4,7 +4,10 @@ const stringify = require("json-stringify-safe");
 var bodyParser = require("body-parser");
 
 const giphyEndpoints = require("./giphyEndpoints.js");
+const parsingTrendingResponse = require("./data-parsing/parsingTrendingResponse");
+const parsingSearchResponse = require("./data-parsing/parsingSearchResponse");
 
+// configure app
 const app = express();
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
@@ -22,9 +25,7 @@ app.get("/api/v1/trending", function(req, res) {
   axios
     .get(giphyEndpoints.trendingApiReq)
     .then(function(response) {
-      // working but unsure data is usuable, will have to test on front end
-      let parsedResponse = stringify(response);
-      res.status(200).send({ parsedResponse });
+      res.status(200).send(parsingTrendingResponse.parseTrending(response));
     })
     .catch(function(error) {
       console.log(error);
@@ -39,7 +40,7 @@ app.post("/api/v1/search", function(req, res) {
     .get(giphySearchApiUrl)
     .then(function(response) {
       let parsedResponse = stringify(response);
-      res.status(200).send({ parsedResponse });
+      res.status(200).send(parsingTrendingResponse.parseTrending(response));
     })
     .catch(function(error) {
       console.log(error);
