@@ -25,7 +25,9 @@ app.get("/api/v1/trending", function(req, res) {
   axios
     .get(giphyEndpoints.trendingApiReq)
     .then(function(response) {
-      res.status(200).send(parsingTrendingResponse.parseTrending(response));
+      return res
+        .status(200)
+        .send(parsingTrendingResponse.parseTrending(response));
     })
     .catch(function(error) {
       console.log(error);
@@ -39,8 +41,7 @@ app.post("/api/v1/search", function(req, res) {
   axios
     .get(giphySearchApiUrl)
     .then(function(response) {
-      let parsedResponse = stringify(response);
-      res.status(200).send(parsingTrendingResponse.parseTrending(response));
+      return res.status(200).send(parsingSearchResponse.parseSearch(response));
     })
     .catch(function(error) {
       console.log(error);
