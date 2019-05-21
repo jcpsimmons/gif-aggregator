@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"
+    />
+    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="css/slick.css" />
+    <link rel="stylesheet" type="text/css" href="css/slick-theme.css" />
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+    <section class="main-area d-flex flex-column justify-content-between">
+      <div class="container pt-5">
+        <h5>Trending GIFs this week:</h5>
+        <div class="slick-slider" id="slider"></div>
+      </div>
+      <div class="container-fluid purple-bg">
+        <div class="row" id="trending-banner"></div>
+      </div>
+      <div class="container-fluid purple-bg body-div text-center">
+        <div class="row purple-bg justify-content-center">
+          <div class="col col-md-4 mb-5 ml-3 mr-3">
+            <h1 id="hello-text">GIF Aggregator</h1>
+            <h2 class="lead-in">
+              An alternative GIF search engine that queries GIPHY
+            </h2>
+            <form id="giphySearch" class="pt-3 pb-2">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="gifSearchQuery"
+                  id="gifSearchQuery"
+                  aria-describedby="gifHelp"
+                  placeholder="Enter GIF search text"
+                />
+                <small id="gifHelp" class="form-text text-muted"
+                  >Search for GIFs by entering a query above.</small
+                >
+              </div>
+              <button type="submit" class="bubble-button">
+                Submit
+              </button>
+            </form>
+            <button id="lucky" class="jelly-button mr-1">
+              Lucky
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid purple-bg">
+        <div
+          class="row text-center justify-content-center"
+          id="search-string"
+        ></div>
+        <div class="row text-center justify-content-center" id="results"></div>
+      </div>
+      <div class="navbar navbar-default navbar-fixed-bottom light-purple-bg">
+        <div class="container">
+          <div class="col-md-12 pt-3">
+            <p>Here is where I would put some placeholder text.</p>
+          </div>
+          <div class="col-md-12">
+            <p>
+              Copyright 2019
+              <a href="https://jcsdesign.me" class="href">Josh C. Simmons.</a>
+              All rights reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="js/slick.js"></script>
+    <script src="js/buttonGiphyCalls.js" type="text/javascript"></script>
+    <script src="js/trendingGiphyCall.js" type="text/javascript"></script>
+  </body>
+</html>

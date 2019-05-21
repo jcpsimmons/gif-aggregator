@@ -1,0 +1,208 @@
+/* taken then modified from CSSFX library - https://cssfx.dev/ */
+
+.slide-button {
+  z-index: 1;
+  position: relative;
+  font-size: inherit;
+  font-family: inherit;
+  color: white;
+  padding: 0.5em 1em;
+  outline: none;
+  border: none;
+  background-color: hsl(246, 41%, 21%);
+}
+
+.slide-button::before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #3cefff;
+  transform-origin: center top;
+  transform: scaleY(0);
+  transition: transform 0.25s ease-in-out;
+}
+
+.slide-button:hover {
+  cursor: pointer;
+  color: #161616;
+}
+
+.slide-button:hover::before {
+  transform-origin: center bottom;
+  transform: scaleY(1);
+}
+
+.jelly-button {
+  z-index: 1;
+  font-size: inherit;
+  font-family: inherit;
+  color: white;
+  padding: 0.5em 1em;
+  outline: none;
+  border: none;
+  background-color: hsl(246, 41%, 21%);
+}
+
+.jelly-button:hover {
+  cursor: pointer;
+  animation: jelly 0.5s;
+}
+
+@keyframes jelly {
+  0%,
+  100% {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(0.9, 1.1);
+  }
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+  75% {
+    transform: scale(0.95, 1.05);
+  }
+}
+
+.bubble-button {
+  z-index: 1;
+  position: relative;
+  font-size: inherit;
+  font-family: inherit;
+  color: white;
+  padding: 0.5em 1em;
+  outline: none;
+  border: none;
+  background-color: hsl(246, 41%, 21%);
+  overflow: hidden;
+  transition: color 0.4s ease-in-out;
+}
+
+.bubble-button::before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 100%;
+  right: 100%;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background-color: #3cefff;
+  transform-origin: center;
+  transform: translate(50%, -50%) scale(0);
+  transition: transform 0.45s ease-in-out;
+}
+
+.bubble-button:hover {
+  cursor: pointer;
+  color: #161616;
+}
+
+.bubble-button:hover::before {
+  transform: translate(50%, -50%) scale(15);
+}
+
+svg {
+  width: 3.75em;
+  transform-origin: center;
+  animation: rotate 2s linear infinite;
+}
+
+circle {
+  fill: none;
+  stroke: #fc2f70;
+  stroke-width: 2;
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dashoffset: -125px;
+  }
+}
+
+/* General Theme Colors */
+
+/* #F5F5F7 - off white */
+/* #FF006E - hot pink */
+/* #090822 - night sky */
+/* #251F4F - prince */
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+* {
+  box-sizing: border-box;
+}
+
+.main-area {
+  background-color: #090822;
+  height: 100vh;
+}
+
+.purple-bg {
+  background-color: #090822;
+  width: 100vw +20px;
+}
+
+.light-purple-bg {
+  background-color: #251f4f;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+label,
+small {
+  color: #f5f5f7;
+}
+
+h1 {
+  color: #ff006e;
+  font-size: 3rem;
+}
+
+h2.lead-in {
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.form-error::placeholder {
+  color: #ff006e;
+}
+
+.form-error {
+  border: 2px solid;
+  color: #ff006e;
+}
+
+.slider-img {
+  width: 250px;
+}
