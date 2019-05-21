@@ -1,17 +1,10 @@
-// I would never hardcode a key like this but have done it here
-// so that you can use the app without having to modify it.
-// usually I would just have a separate file called "keys"
-// that I would put it in. I would then add it to the .gitignore
-// so that it's not shown in the repo. I've demonstrated this
-// in this repository's .gitignore
-
 ////////////////
 ////////////////
 // Important Variable(s)
 ////////////////
 ////////////////
 
-var giphyKey = "3DAz2neKof43L29jJ6t5AknH2K2skrme";
+var giphyKey = "NULL";
 
 ////////////////
 ////////////////
