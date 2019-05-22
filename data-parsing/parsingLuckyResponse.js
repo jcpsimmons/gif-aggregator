@@ -1,13 +1,13 @@
 exports.parseLucky = function(rawData) {
   var luckyGifs = [];
 
-  for (i = 0; i < rawData.data.data.length; i++) {
-    trendingGifs.push({
-      title: rawData.data.data[i].title,
-      link: rawData.data.data[i].url,
-      img: rawData.data.data[i].images.downsized.url
-    });
-  }
+  console.log(rawData.data.data);
+
+  luckyGifs.push({
+    title: rawData.data.data.title,
+    link: rawData.data.data.url,
+    img: rawData.data.data.images.downsized.url
+  });
 
   return luckyGifs;
 };

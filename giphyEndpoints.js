@@ -1,4 +1,13 @@
-const gKey = process.env.APIKEY;
+let gKey = null;
+
+// check if running on heroku
+// if local dev, use gitignored key file
+if (process.env.CLOUDSTATUS == true) {
+  gKey = process.env.APIKEY;
+} else {
+  const localKey = require("./keys/keys");
+  gKey = localKey.giphyKey;
+}
 
 exports.trendingApiReq =
   "https://api.giphy.com/v1/gifs/trending?api_key=" +

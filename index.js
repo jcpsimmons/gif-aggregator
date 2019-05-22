@@ -21,7 +21,7 @@ app.get("/api/v1/test", function(res) {
 // GET /api/v1/trending
 // Returns trending GIF information
 // TODO - parse on backend and send list of GIF URLs in response
-app.get("/api/v1/trending", function(res) {
+app.get("/api/v1/trending", function(req, res) {
   axios
     .get(giphyEndpoints.trendingApiReq)
     .then(function(response) {
@@ -34,13 +34,11 @@ app.get("/api/v1/trending", function(res) {
     });
 });
 
-app.get("/api/v1/lucky", function(res) {
+app.get("/api/v1/lucky", function(req, res) {
   axios
-    .get(luckyApiReq)
+    .get(giphyEndpoints.luckyApiReq)
     .then(function(response) {
-      return res
-        .status(200)
-        .send(parsingTrendingResponse.parseTrending(response));
+      return res.status(200).send(parsingLuckyResponse.parseLucky(response));
     })
     .catch(function(error) {
       console.log(error);
