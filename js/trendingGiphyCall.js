@@ -21,22 +21,17 @@ function clearDiv() {
 $(function() {
   var activeSlide = "active";
 
-  var trendingApiReq =
-    "https://api.giphy.com/v1/gifs/trending?api_key=" +
-    giphyKey +
-    "&limit=15" +
-    "&rating=pg";
+  var trendingApiReq = "https://gif-aggregator.herokuapp.com/api/v1/trending";
 
   // send the GET request to GIPHY
   $.get(trendingApiReq, function(data, status) {
-    var parsedData = $.parseJSON(JSON.stringify(data));
-    for (i = 0; i < parsedData.data.length; i++) {
+    for (i = 0; i < data.length; i++) {
       i == 0 ? (activeSlide = "active") : (activeSlide = "");
       $("#slider").append(`
         <div>
-           <img class="slider-img" src="${
-             parsedData.data[i].images.downsized.url
-           }" alt="${parsedData.data[i].title}" />
+           <img class="slider-img" src="${data[i].img}" alt="${
+        data[i].title
+      }" />
          </div>`);
     }
     $(".slick-slider").slick({

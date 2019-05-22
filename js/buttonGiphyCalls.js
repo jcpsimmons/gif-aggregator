@@ -145,32 +145,3 @@ $("#lucky").click(function(e) {
   scrollToAnchor("#results");
   $("#gifSearchQuery").removeClass("form-error animated shake");
 });
-
-$("#hire").click(function(e) {
-  // assemble the request URL
-  var searchApiReq =
-    "https://api.giphy.com/v1/gifs/search?api_key=" +
-    giphyKey +
-    "&q=congratulations" +
-    "&limit=30" +
-    "&rating=pg";
-
-  // send the GET request to GIPHY
-  $.get(searchApiReq, function(data, status) {
-    var parsedData = $.parseJSON(JSON.stringify(data));
-    clearDiv();
-    for (i = 0; i < parsedData.data.length; i++) {
-      $("#results").append(
-        `<div class="col-md-3 mb-5 text-center">
-          <a href=${parsedData.data[i].url}>
-            <img class="img-fluid" src="${
-              parsedData.data[i].images.downsized_large.url
-            }" alt="${parsedData.data[i].title}" />
-          </a>
-        </div>`
-      );
-    }
-  });
-  scrollToAnchor("#results");
-  $("#gifSearchQuery").removeClass("form-error animated shake");
-});
