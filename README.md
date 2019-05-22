@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # gif-aggregator (backend)
 
 **update**
@@ -28,3 +29,10 @@ I'm using Node and Express for the server. I'm using Axios to handle requests fr
 - create an errors object for each route, and return better errors for frontend
 - parsing the JSON response from GIPHY for easier use on the frontend
 - rating slider
+=======
+# Dev Notes
+
+# Syntax
+
+For a deployment ready site I'd make sure to stick to ES5 for string concatenation. Due to the time-sensitive nature of this version, I've mostly used template literals to handle string concatenation so you'll likely have to use the site in Firefox or Chrome for it to work.
+>>>>>>> 9a96ae8df7b0cf605cbc6c8b91260f8ee1056365
