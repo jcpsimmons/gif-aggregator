@@ -6,6 +6,9 @@ exports.trendingApiReq =
   "&limit=15" +
   "&rating=pg";
 
+exports.luckyApiReq =
+  "https://api.giphy.com/v1/gifs/random?api_key=" + gKey + "&rating=pg";
+
 exports.giphyApiSearchString = function(q) {
   var searchString =
     "https://api.giphy.com/v1/gifs/search?api_key=" +
