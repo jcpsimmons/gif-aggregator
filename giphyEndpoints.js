@@ -2,7 +2,7 @@ let gKey = null;
 
 // check if running on heroku
 // if local dev, use gitignored key file
-if (process.env.CLOUDSTATUS == true) {
+if (process.env.APIKEY) {
   gKey = process.env.APIKEY;
 } else {
   const localKey = require("./keys/keys");
