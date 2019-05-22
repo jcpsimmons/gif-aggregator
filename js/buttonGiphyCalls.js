@@ -1,13 +1,5 @@
 ////////////////
 ////////////////
-// Important Variable(s)
-////////////////
-////////////////
-
-var giphyKey = "NULL";
-
-////////////////
-////////////////
 // AJAX Loading Detection
 ////////////////
 ////////////////
@@ -45,11 +37,6 @@ function loadingSpinner() {
   );
 }
 
-function scrollToAnchor(aid) {
-  var aTag = $("a[name='" + aid + "']");
-  $("html,body").animate({ scrollTop: aTag.offset().top }, "slow");
-}
-
 ////////////////
 ////////////////
 // Button Functions
@@ -76,30 +63,22 @@ $("#giphySearch").submit(function(e) {
 
   // assemble the request URL
   var searchApiReq =
-    "https://api.giphy.com/v1/gifs/search?api_key=" +
-    giphyKey +
-    "&q=" +
-    query +
-    "&limit=30" +
-    "&rating=pg";
+    "https://gif-aggregator.herokuapp.com/api/v1/search?query=" + query;
 
   // send the GET request to GIPHY
-  $.get(searchApiReq, function(data, status) {
-    var parsedData = $.parseJSON(JSON.stringify(data));
+  $.post(searchApiReq, function(data, status) {
     clearDiv();
-    for (i = 0; i < parsedData.data.length; i++) {
+    for (i = 0; i < data.length; i++) {
       $("#results").append(
         `<div class="col-md-3 mb-5 text-center">
-        <a href=${parsedData.data[i].url}>
-        <img class="img-fluid" src="${
-          parsedData.data[i].images.downsized_large.url
-        }" alt="${parsedData.data[i].title}" />
+        <a href=${data[i].url}>
+        <img class="img-fluid" src="${data[i].img}" alt="${data[i].title}" />
         </a>
       </div>`
       );
     }
 
-    if (parsedData.data.length < 1) {
+    if (data.length < 1) {
       $("#search-string").empty();
       $("#search-string").append(
         `<div class="col-md-4 mb-5"><h5>No results for "${query}", <br/> try another search!</h5></div>`
@@ -125,19 +104,15 @@ $("#lucky").click(function(e) {
   clearDiv();
 
   // make string for random gif endpoint request
-  var randomApiReq =
-    "https://api.giphy.com/v1/gifs/random?api_key=" + giphyKey + "&rating=pg";
+  var randomApiReq = "https://gif-aggregator.herokuapp.com/api/v1/lucky";
 
   // GET request with .fail in case errors are returned
   $.get(randomApiReq, function(data, status) {
-    var parsedData = $.parseJSON(JSON.stringify(data));
     clearDiv();
     $("#results").append(
       `<div class="col-lg-6 mb-5">
-      <a href=${parsedData.data.url}>
-        <img src="${parsedData.data.images.downsized_large.url}" alt="${
-        parsedData.data.title
-      }" />
+      <a href=${data[0].link}>
+        <img src="${data[0].img}" alt="${data[0].title}" />
       </a>
       </div>`
     );
